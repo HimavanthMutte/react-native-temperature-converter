@@ -1,3 +1,4 @@
+import Input from "@/components/Input";
 import { Image, Text, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import hotImage from "../../assets/hot.png";
@@ -9,7 +10,7 @@ export default function App() {
         <Image style={styles.background} source={hotImage} />
         <View style={styles.workspace}>
           <Text>Temperature Converter</Text>
-          <Text>Input</Text>
+          <Input />
           <Text>Convert to Celcius</Text>
         </View>
       </SafeAreaView>

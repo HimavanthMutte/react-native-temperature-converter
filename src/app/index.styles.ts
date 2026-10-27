@@ -6,6 +6,8 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-evenly",
     alignItems: "center",
+    paddingLeft: 30,
+    paddingRight: 30,
   },
   background: {
     ...StyleSheet.absoluteFill,

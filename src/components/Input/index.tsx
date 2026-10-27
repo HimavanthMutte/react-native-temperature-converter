@@ -1,13 +1,20 @@
 import { Text, TextInput, View } from "react-native";
 import styles from "./index.style";
-export default function Input() {
+
+type InputProps = {
+  default: string;
+  onChange: (text: string) => void;
+};
+
+export default function Input(props: InputProps) {
   return (
     <View style={styles.inputContainer}>
       <TextInput
         style={styles.input}
         maxLength={3}
-        defaultValue="0"
+        defaultValue={props.default}
         placeholder="Type your temperature..."
+        onChangeText={(text) => props.onChange(text)}
       />
       <Text style={styles.unit}>°C</Text>
     </View>

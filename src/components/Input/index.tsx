@@ -3,6 +3,7 @@ import styles from "./index.style";
 
 type InputProps = {
   default: string;
+  unit: string;
   onChange: (text: string) => void;
 };
 
@@ -16,7 +17,7 @@ export default function Input(props: InputProps) {
         placeholder="Type your temperature..."
         onChangeText={(text) => props.onChange(text)}
       />
-      <Text style={styles.unit}>°C</Text>
+      <Text style={styles.unit}>{props.unit}</Text>
     </View>
   );
 }

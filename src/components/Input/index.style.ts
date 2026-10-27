@@ -9,6 +9,12 @@ const styles = StyleSheet.create({
   inputContainer: {
     alignSelf: "stretch",
   },
+  unit: {
+    position: "absolute",
+    fontSize: 30,
+    right: 25,
+    top: 8,
+  },
 });
 
 export default styles;

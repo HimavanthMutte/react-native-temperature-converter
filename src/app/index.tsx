@@ -1,11 +1,13 @@
+import ConvertButton from "@/components/ConvertButton";
 import DisplayTemperature from "@/components/DisplayTemperature";
 import Input from "@/components/Input";
 import { useState } from "react";
-import { Image, Text, View } from "react-native";
+import { Image, View } from "react-native";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import hotImage from "../../assets/hot.png";
 import { convertTemperatureTo, getOpposite } from "../utils/temperature";
 import styles from "./index.styles";
+
 export default function App() {
   const [inputValue, changeInput] = useState("0");
   const [unit, changeUnit] = useState("°C");
@@ -20,10 +22,10 @@ export default function App() {
         <View style={styles.workspace}>
           <DisplayTemperature
             unit={oppositeUnit}
-            temperature={temperature.toString()}
+            temperature={temperature.toFixed().toString()}
           />
           <Input unit={unit} default={inputValue} onChange={changeInput} />
-          <Text>Convert to Celcius</Text>
+          <ConvertButton onPress={() => changeUnit(oppositeUnit)} unit={unit} />
         </View>
       </SafeAreaView>
     </SafeAreaProvider>

@@ -10,6 +10,9 @@ export default function App() {
   const [inputValue, changeInput] = useState("0");
   const [unit, changeUnit] = useState("°C");
   const oppositeUnit = getOpposite(unit);
+  let temperature = convertTemperatureTo(+inputValue, oppositeUnit);
+  if (Number.isNaN(temperature)) temperature = 0;
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{ flex: 1, justifyContent: "center" }}>
@@ -17,9 +20,7 @@ export default function App() {
         <View style={styles.workspace}>
           <DisplayTemperature
             unit={oppositeUnit}
-            temperature={convertTemperatureTo(+inputValue, oppositeUnit)
-              .toFixed()
-              .toString()}
+            temperature={temperature.toString()}
           />
           <Input unit={unit} default={inputValue} onChange={changeInput} />
           <Text>Convert to Celcius</Text>
